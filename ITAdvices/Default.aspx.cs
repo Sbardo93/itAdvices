@@ -13,7 +13,7 @@ namespace ITAdvices
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblprova.Text = DataManager.getUsers().Count().ToString();
+            //lblprova.Text = DataManager.getUsers().Count().ToString();
         }
     }
 }
