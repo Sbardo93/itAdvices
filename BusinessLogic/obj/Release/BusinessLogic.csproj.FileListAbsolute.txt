@@ -1,0 +1,9 @@
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Release\BusinessLogic.dll.config
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Release\BusinessLogic.dll
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Release\BusinessLogic.pdb
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Release\EntityFramework.dll
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Release\EntityFramework.xml
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\obj\Release\BusinessLogic.dll
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\obj\Release\BusinessLogic.pdb
