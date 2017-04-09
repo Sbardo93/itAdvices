@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBitAdvices" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Ruoli">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ruolo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Utenti" Relationship="Self.RuoloUtente" FromRole="Ruoli" ToRole="Utenti" />
+  </EntityType>
+  <EntityType Name="Utenti">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Guid" Nullable="false" />
+    <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IdRuolo" Type="Int32" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DataRegistrazione" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Ruoli" Relationship="Self.RuoloUtente" FromRole="Utenti" ToRole="Ruoli" />
+  </EntityType>
+  <Association Name="RuoloUtente">
+    <End Role="Ruoli" Type="Self.Ruoli" Multiplicity="1" />
+    <End Role="Utenti" Type="Self.Utenti" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ruoli">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Utenti">
+        <PropertyRef Name="IdRuolo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ruoli" EntityType="Self.Ruoli" />
+    <EntitySet Name="Utenti" EntityType="Self.Utenti" />
+    <AssociationSet Name="RuoloUtente" Association="Self.RuoloUtente">
+      <End Role="Ruoli" EntitySet="Ruoli" />
+      <End Role="Utenti" EntitySet="Utenti" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

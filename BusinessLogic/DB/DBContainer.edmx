@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBContainer.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ruoli">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Ruolo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utenti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="IdRuolo" Type="int" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="DataRegistrazione" Type="smalldatetime" Nullable="false" />
+        </EntityType>
+        <Association Name="RuoloUtente">
+          <End Role="Ruoli" Type="Self.Ruoli" Multiplicity="1" />
+          <End Role="Utenti" Type="Self.Utenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ruoli">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Utenti">
+              <PropertyRef Name="IdRuolo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBContainerStoreContainer">
+          <EntitySet Name="Ruoli" EntityType="Self.Ruoli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utenti" EntityType="Self.Utenti" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="RuoloUtente" Association="Self.RuoloUtente">
+            <End Role="Ruoli" EntitySet="Ruoli" />
+            <End Role="Utenti" EntitySet="Utenti" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBContainer" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ruoli">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Ruolo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Utenti" Relationship="Self.RuoloUtente" FromRole="Ruoli" ToRole="Utenti" />
+        </EntityType>
+        <EntityType Name="Utenti">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IdRuolo" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataRegistrazione" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Ruoli" Relationship="Self.RuoloUtente" FromRole="Utenti" ToRole="Ruoli" />
+        </EntityType>
+        <Association Name="RuoloUtente">
+          <End Role="Ruoli" Type="Self.Ruoli" Multiplicity="1" />
+          <End Role="Utenti" Type="Self.Utenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ruoli">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Utenti">
+              <PropertyRef Name="IdRuolo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ruoli" EntityType="Self.Ruoli" />
+          <EntitySet Name="Utenti" EntityType="Self.Utenti" />
+          <AssociationSet Name="RuoloUtente" Association="Self.RuoloUtente">
+            <End Role="Ruoli" EntitySet="Ruoli" />
+            <End Role="Utenti" EntitySet="Utenti" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBContainerStoreContainer" CdmEntityContainer="DBEntities">
+          <EntitySetMapping Name="Ruoli">
+            <EntityTypeMapping TypeName="DBContainer.Ruoli">
+              <MappingFragment StoreEntitySet="Ruoli">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Ruolo" ColumnName="Ruolo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utenti">
+            <EntityTypeMapping TypeName="DBContainer.Utenti">
+              <MappingFragment StoreEntitySet="Utenti">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="IdRuolo" ColumnName="IdRuolo" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DataRegistrazione" ColumnName="DataRegistrazione" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

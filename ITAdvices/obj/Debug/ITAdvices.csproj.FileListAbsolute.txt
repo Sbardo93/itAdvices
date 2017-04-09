@@ -27,8 +27,13 @@ C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\ITAdvices.dll.config
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\ITAdvices.dll
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\ITAdvices.pdb
+C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\BusinessLogic.dll
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\EntityFramework.dll
+C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\BusinessLogic.pdb
+C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\BusinessLogic.dll.config
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\EntityFramework.xml
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\obj\Debug\ITAdvices.csprojResolveAssemblyReference.cache
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\obj\Debug\ITAdvices.dll
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\obj\Debug\ITAdvices.pdb
