@@ -56,7 +56,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBContainer.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\DBContainer.Context.Custom.cs" />
     <Compile Include="DB\DataManager.cs" />
     <Compile Include="DB\DBContainer.cs">
       <AutoGen>True</AutoGen>
