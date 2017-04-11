@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 namespace BusinessLogic.DB
 {
 
-    public class DBService<TObject> : IDisposable where TObject : class
+    public class DataService<TObject> : IDisposable where TObject : class
     {
         protected DBEntities _context;
 
-        public DBService()
+        public DataService()
         {
             _context = new DBEntities();
         }

@@ -5,9 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="4ce0ca93681d47e48cc6c0c489ec80cb" Name="Diagram1">
-        <EntityTypeShape EntityType="DBContainer.Ruoli" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="DBContainer.Utenti" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="DBContainer.RuoloUtente" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DBContainer.Ruolo" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="DBContainer.Utente" Width="1.5" PointX="3" PointY="1.375" />
+        <AssociationConnector Association="DBContainer.RuoloUtente1" />
+        <EntityTypeShape EntityType="DBContainer.Log" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -10,8 +10,7 @@
 namespace ITAdvices {
     
     
-    public partial class Default
-    {
+    public partial class Default {
         
         /// <summary>
         /// form1 control.
@@ -30,5 +29,14 @@ namespace ITAdvices {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblprova;
+        
+        /// <summary>
+        /// ucSmartGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::ITAdvices.ucSmartGrid ucSmartGrid;
     }
 }

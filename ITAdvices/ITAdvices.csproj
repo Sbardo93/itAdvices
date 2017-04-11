@@ -48,6 +48,7 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -56,10 +57,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -78,12 +81,23 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Default.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\.DS_Store" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-bold-webfont.eot" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-bold-webfont.ttf" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-bold-webfont.woff" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-bold-webfont.woff2" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-regular-webfont.eot" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-regular-webfont.ttf" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-regular-webfont.woff" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-regular-webfont.woff2" />
+    <Content Include="Style\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Style\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Style\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Style\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Style\font-awesome\fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -92,6 +106,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Script\bootstrap-toggle.js" />
+    <Content Include="Script\bootstrap.min.js" />
+    <Content Include="Script\datatables.min.js" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-bold-webfont.svg" />
+    <Content Include="Style\Bootstrap-3.3.7\fonts\ruda-regular-webfont.svg" />
+    <Content Include="Style\bootstrap-toggle.css" />
+    <Content Include="Style\datatables.min.css" />
+    <Content Include="Style\font-awesome\css\font-awesome.css" />
+    <Content Include="Style\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="UserControl\ucSmartGrid.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -105,12 +130,22 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\ucSmartGrid.ascx.cs">
+      <DependentUpon>ucSmartGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucSmartGrid.ascx.designer.cs">
+      <DependentUpon>ucSmartGrid.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
       <Project>{ab1e1085-4b4e-4b32-bc9b-6afc6d40c7a8}</Project>
       <Name>BusinessLogic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Shared\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

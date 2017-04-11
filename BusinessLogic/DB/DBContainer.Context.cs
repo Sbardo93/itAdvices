@@ -25,7 +25,8 @@ namespace BusinessLogic.DB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Ruoli> Ruoli { get; set; }
-        public virtual DbSet<Utenti> Utenti { get; set; }
+        public virtual DbSet<Ruolo> Ruolo { get; set; }
+        public virtual DbSet<Utente> Utente { get; set; }
+        public virtual DbSet<Log> Log { get; set; }
     }
 }

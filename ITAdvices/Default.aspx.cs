@@ -1,11 +1,6 @@
-﻿using BusinessLogic;
-using System;
+﻿using System;
+using BusinessLogic.Presenter;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace ITAdvices
 {
@@ -13,7 +8,18 @@ namespace ITAdvices
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblprova.Text = DataManager<BusinessLogic.DB.Utenti>.GetAll().Count + string.Empty;
+            //lblprova.Text = new UtentiPresenter().GetUtente(Guid.Empty).ToString();
+            this.ucSmartGrid.LoadSmartGrid(new UtilsPresenter().GetAllLog(), true, false,
+                new List<ucSmartGrid.ButtonTypeEnum>()
+                { ucSmartGrid.ButtonTypeEnum.Excel, ucSmartGrid.ButtonTypeEnum.Pdf, ucSmartGrid.ButtonTypeEnum.Print },
+                "Log");
+        }
+
+
+        [System.Web.Services.WebMethod(EnableSession = true)]
+        public static ucSmartGrid.SmartGridData GetObjects()
+        {
+            return ucSmartGrid.GetObjects();
         }
     }
 }

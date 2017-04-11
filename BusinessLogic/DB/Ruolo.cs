@@ -12,18 +12,18 @@ namespace BusinessLogic.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Ruoli
+    public partial class Ruolo
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Ruoli()
+        public Ruolo()
         {
-            this.Utenti = new HashSet<Utenti>();
+            this.Utente = new HashSet<Utente>();
         }
     
         public int Id { get; set; }
-        public string Ruolo { get; set; }
+        public string Ruolo1 { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Utenti> Utenti { get; set; }
+        public virtual ICollection<Utente> Utente { get; set; }
     }
 }

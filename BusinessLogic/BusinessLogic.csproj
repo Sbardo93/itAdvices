@@ -37,12 +37,16 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\dll_esterne\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DB\CustomEntity.cs" />
+    <Compile Include="Shared\CommonUtils.cs" />
     <Compile Include="DB\DBContainer.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -67,14 +73,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DBContainer.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DB\DBService.cs" />
-    <Compile Include="DB\Ruoli.cs">
+    <Compile Include="DB\DataService.cs" />
+    <Compile Include="DB\Log.cs">
       <DependentUpon>DBContainer.tt</DependentUpon>
     </Compile>
-    <Compile Include="DB\Utenti.cs">
+    <Compile Include="Shared\Logger.cs" />
+    <Compile Include="DB\Ruolo.cs">
       <DependentUpon>DBContainer.tt</DependentUpon>
     </Compile>
+    <Compile Include="DB\Utente.cs">
+      <DependentUpon>DBContainer.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Presenter\UtilsPresenter.cs" />
+    <Compile Include="Presenter\UtentiPresenter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shared\SessionHelper.cs" />
+    <Compile Include="Shared\SmartGridUtility.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

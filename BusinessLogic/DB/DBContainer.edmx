@@ -4,15 +4,32 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="DBContainer.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Ruoli">
+    <Schema Namespace="DBContainer.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'MSSql143214.dbo.Log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Data" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Message" />
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="Data" Type="smalldatetime" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Message" Type="varchar(max)" Nullable="false" />
+          <Property Name="SessionId" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SessionState" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Ruolo">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Ruolo" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
-        <EntityType Name="Utenti">
+        <EntityType Name="Utente">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -23,91 +40,128 @@
           <Property Name="DataRegistrazione" Type="smalldatetime" Nullable="false" />
         </EntityType>
         <Association Name="RuoloUtente">
-          <End Role="Ruoli" Type="Self.Ruoli" Multiplicity="1" />
-          <End Role="Utenti" Type="Self.Utenti" Multiplicity="*" />
+          <End Role="Ruolo" Type="Self.Ruolo" Multiplicity="1" />
+          <End Role="Utente" Type="Self.Utente" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Ruoli">
+            <Principal Role="Ruolo">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Utenti">
+            <Dependent Role="Utente">
               <PropertyRef Name="IdRuolo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="DBContainerStoreContainer">
-          <EntitySet Name="Ruoli" EntityType="Self.Ruoli" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Utenti" EntityType="Self.Utenti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ruolo" EntityType="Self.Ruolo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utente" EntityType="Self.Utente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Log" EntityType="Self.Log" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Log].[Data] AS [Data], 
+    [Log].[Username] AS [Username], 
+    [Log].[Category] AS [Category], 
+    [Log].[Message] AS [Message], 
+    [Log].[SessionId] AS [SessionId], 
+    [Log].[SessionState] AS [SessionState]
+    FROM [dbo].[Log] AS [Log]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="RuoloUtente" Association="Self.RuoloUtente">
-            <End Role="Ruoli" EntitySet="Ruoli" />
-            <End Role="Utenti" EntitySet="Utenti" />
+            <End Role="Ruolo" EntitySet="Ruolo" />
+            <End Role="Utente" EntitySet="Utente" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="DBContainer" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Ruoli">
+        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Ruolo" EntityType="DBContainer.Ruolo" />
+          <EntitySet Name="Utente" EntityType="DBContainer.Utente" />
+          <AssociationSet Name="RuoloUtente1" Association="DBContainer.RuoloUtente1">
+            <End Role="Ruolo" EntitySet="Ruolo" />
+            <End Role="Utente" EntitySet="Utente" />
+          </AssociationSet>
+          <EntitySet Name="Log" EntityType="DBContainer.Log" />
+        </EntityContainer>
+        <EntityType Name="Ruolo">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Ruolo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="Utenti" Relationship="Self.RuoloUtente" FromRole="Ruoli" ToRole="Utenti" />
+          <Property Name="Ruolo1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Utente" Relationship="DBContainer.RuoloUtente1" FromRole="Ruolo" ToRole="Utente" />
         </EntityType>
-        <EntityType Name="Utenti">
+        <EntityType Name="Utente">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Guid" Nullable="false" />
-          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="IdRuolo" Type="Int32" Nullable="false" />
-          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
           <Property Name="DataRegistrazione" Type="DateTime" Nullable="false" Precision="0" />
-          <NavigationProperty Name="Ruoli" Relationship="Self.RuoloUtente" FromRole="Utenti" ToRole="Ruoli" />
+          <NavigationProperty Name="Ruolo" Relationship="DBContainer.RuoloUtente1" FromRole="Utente" ToRole="Ruolo" />
         </EntityType>
-        <Association Name="RuoloUtente">
-          <End Role="Ruoli" Type="Self.Ruoli" Multiplicity="1" />
-          <End Role="Utenti" Type="Self.Utenti" Multiplicity="*" />
+        <Association Name="RuoloUtente1">
+          <End Type="DBContainer.Ruolo" Role="Ruolo" Multiplicity="1" />
+          <End Type="DBContainer.Utente" Role="Utente" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Ruoli">
+            <Principal Role="Ruolo">
               <PropertyRef Name="Id" />
             </Principal>
-            <Dependent Role="Utenti">
+            <Dependent Role="Utente">
               <PropertyRef Name="IdRuolo" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="DBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Ruoli" EntityType="Self.Ruoli" />
-          <EntitySet Name="Utenti" EntityType="Self.Utenti" />
-          <AssociationSet Name="RuoloUtente" Association="Self.RuoloUtente">
-            <End Role="Ruoli" EntitySet="Ruoli" />
-            <End Role="Utenti" EntitySet="Utenti" />
-          </AssociationSet>
-        </EntityContainer>
+        <EntityType Name="Log">
+          <Key>
+            <PropertyRef Name="Data" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Category" />
+            <PropertyRef Name="Message" />
+            <PropertyRef Name="SessionId" />
+          </Key>
+          <Property Name="Data" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Category" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Message" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="SessionId" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SessionState" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="DBContainerStoreContainer" CdmEntityContainer="DBEntities">
-          <EntitySetMapping Name="Ruoli">
-            <EntityTypeMapping TypeName="DBContainer.Ruoli">
-              <MappingFragment StoreEntitySet="Ruoli">
+          <EntitySetMapping Name="Ruolo">
+            <EntityTypeMapping TypeName="DBContainer.Ruolo">
+              <MappingFragment StoreEntitySet="Ruolo">
+                <ScalarProperty Name="Ruolo1" ColumnName="Ruolo" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Ruolo" ColumnName="Ruolo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Utenti">
-            <EntityTypeMapping TypeName="DBContainer.Utenti">
-              <MappingFragment StoreEntitySet="Utenti">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Username" ColumnName="Username" />
-                <ScalarProperty Name="IdRuolo" ColumnName="IdRuolo" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
+          <EntitySetMapping Name="Utente">
+            <EntityTypeMapping TypeName="DBContainer.Utente">
+              <MappingFragment StoreEntitySet="Utente">
                 <ScalarProperty Name="DataRegistrazione" ColumnName="DataRegistrazione" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="IdRuolo" ColumnName="IdRuolo" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Log">
+            <EntityTypeMapping TypeName="DBContainer.Log">
+              <MappingFragment StoreEntitySet="Log">
+                <ScalarProperty Name="SessionState" ColumnName="SessionState" />
+                <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Data" ColumnName="Data" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -8,3 +8,4 @@ C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Debug\EntityFramework.SqlServ
 C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\obj\Debug\BusinessLogic.dll
 C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\obj\Debug\BusinessLogic.pdb
 C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\obj\Debug\BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\ItAdvices\Dev\ITAdvices\BusinessLogic\bin\Debug\log4net.dll

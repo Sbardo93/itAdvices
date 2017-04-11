@@ -12,14 +12,13 @@ namespace BusinessLogic.DB
     using System;
     using System.Collections.Generic;
     
-    public partial class Utenti
+    public partial class Log
     {
-        public System.Guid Id { get; set; }
+        public System.DateTime Data { get; set; }
         public string Username { get; set; }
-        public int IdRuolo { get; set; }
-        public string Email { get; set; }
-        public System.DateTime DataRegistrazione { get; set; }
-    
-        public virtual Ruoli Ruoli { get; set; }
+        public string Category { get; set; }
+        public string Message { get; set; }
+        public string SessionId { get; set; }
+        public string SessionState { get; set; }
     }
 }
