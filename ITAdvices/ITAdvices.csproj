@@ -83,6 +83,9 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Script\assetScripts.js" />
+    <Content Include="Script\Browser.js" />
+    <Content Include="Script\jquery.blockUI.js" />
+    <Content Include="Script\Utility.js" />
     <Content Include="Style\assetStyles.css" />
     <Content Include="Style\Bootstrap-3.3.7\fonts\.DS_Store" />
     <Content Include="Style\Bootstrap-3.3.7\fonts\glyphicons-halflings-regular.eot" />

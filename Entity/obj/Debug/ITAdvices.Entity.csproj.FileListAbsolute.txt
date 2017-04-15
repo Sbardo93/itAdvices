@@ -9,4 +9,3 @@ C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.dll
 C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.pdb
 C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.csproj.GenerateResource.Cache
 C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.Common.Messages.resources
-C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.csprojResolveAssemblyReference.cache

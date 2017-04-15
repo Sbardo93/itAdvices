@@ -2,7 +2,19 @@
 <!DOCTYPE html>
 <html>
 <head runat="server">
-    <title></title>
+    <title>ITAdvices</title>  
+    <!-- CSS -->
+    <link rel="Stylesheet" href="/Style/assetStyles.css" type="text/css" />
+    <link rel="Stylesheet" href="/Style/bootstrap-toggle.css" type="text/css" />
+    <!-- Javascript -->
+    <script type="text/javascript" src="/Script/assetScripts.js"></script>
+    <script type="text/javascript" src="/Script/bootstrap-toggle.js"></script>
+    <script type="text/javascript" src="/Script/Browser.js"></script>
+    <script type="text/javascript" src="/Script/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="/Script/Utility.js"></script>
+    <script type="text/javascript">
+        window.history.forward(1);
+    </script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
