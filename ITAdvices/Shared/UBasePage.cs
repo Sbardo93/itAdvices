@@ -1,9 +1,7 @@
 ﻿using System.Text;
 using System.Linq;
 using System.Web;
-using Unicarpe.Shared;
 using System.Collections.Generic;
-using Unicarpe;
 using System.Web.UI.HtmlControls;
 using System.Collections;
 using System.Collections.Specialized;
@@ -11,9 +9,11 @@ using System;
 using ITAdvices.Business;
 using ITAdvices.Entity.DB;
 using System.Security.Principal;
+using ITAdvices.Entity.Common;
+using System.Web.UI;
 //using Unicarpe.Pages.Domanda;
 
-namespace ITAdvices
+namespace ITAdvices.Shared
 {
     public class UBasePage : System.Web.UI.Page, IBasePageView
     {
@@ -41,11 +41,6 @@ namespace ITAdvices
                 return ret;
             }
         }
-        protected override void OnPreLoad(System.EventArgs e)
-        {
-            base.OnPreLoad(e);
-
-        }
 
         public List<Parametri> ListaParametri
         {
@@ -56,7 +51,7 @@ namespace ITAdvices
                 {
                     return presenter.GetAllParametri();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Logger.LogException(ex);
                     return new List<Parametri>();
@@ -101,6 +96,7 @@ namespace ITAdvices
                 _errors = value;
             }
         }
+
         private List<string> _messages;
         public List<string> messages
         {
@@ -135,27 +131,6 @@ namespace ITAdvices
             }
         }
 
-        private bool _isStoricizzato;
-        public bool isStoricizzato
-        {
-            get { return _isStoricizzato; }
-            set { _isStoricizzato = value; }
-        }
-
-        private bool _isEnpalsStoricizzato;
-        public bool isEnpalsStoricizzato
-        {
-            get { return _isEnpalsStoricizzato; }
-            set { _isEnpalsStoricizzato = value; }
-        }
-
-        private bool _isSupplementoConfermato;
-        public bool isSupplementoConfermato
-        {
-            get { return _isSupplementoConfermato; }
-            set { _isSupplementoConfermato = value; }
-        }
-
         public IPrincipal Utente
         {
             get
@@ -163,44 +138,146 @@ namespace ITAdvices
                 return (IPrincipal)Context.User;
             }
         }
-        protected override void OnInit(System.EventArgs e)
-        {
-            base.OnInit(e);
 
-            if (Context.Session != null)
+
+        protected override void OnLoad(EventArgs e)
+        {
+            if (!Utility.IsCorrectGET(Request))
             {
-                //if (!string.IsNullOrEmpty((string)SessionHelper.Get(SessionKeys.IdMenuExt)))
-                //{
-                //    return;
-                //}
-                //Tested and the IsNewSession is more advanced then simply checking if 
-                // a cookie is present, it does take into account a session timeout, because 
-                // I tested a timeout and it did show as a new session
-                if (Session.IsNewSession)
-                {
-                    // If it says it is a new session, but an existing cookie exists, then it must 
-                    // have timed out (can't use the cookie collection because even on first 
-                    // request it already contains the cookie (request and response
-                    // seem to share the collection)
-                    string szCookieHeader = Request.Headers["Cookie"];
-                    if ((null != szCookieHeader) && (szCookieHeader.IndexOf("ASP.NET_SessionId") >= 0))
+                HideForm(this);
+                return;
+            }
+
+            SessionHelper.Delete(SessionKeys.Courtesy);
+
+            string currentPage = Utility.GetCurrentPageName(System.Web.HttpContext.Current.Request);
+
+            switch (currentPage)
+            {
+                case Keys.Pages.Default:
+                    SessionHelper.SetValue(SessionKeys.SESSION_ALIVE, Keys.SI);
+                    break;
+                default:
+                    if (Utility.IsSessionExpired())
                     {
-                        //if (VerificaApplicationState())
-                        //{
-                        //    HttpContext.Current.Response.Redirect("~/Pages/Shared/SessionTimeOut.aspx");
-                        //}
+                        SessionHelper.Set(SessionKeys.Courtesy, Enums.Courtesy.SessioneScaduta);
+                        Response.Redirect(Utility.GetUrl(Keys.Pages.Courtesy), true);
+                        return;
+                    }
+                    break;
+            }
+
+            if (Utility.IsNoJavascript())
+            {
+                ResetGuid();
+            }
+
+            //if (!IsUserAbilitato())
+            //{
+            //    SessionHelper.Set(SessionKeys.Courtesy, Enums.Courtesy.Default);
+            //    SessionHelper.SetValue(SessionKeys.Courtesy_Error, Messages.UtenteNonAbilitato);
+            //    Response.Redirect(Pages.GetUrl(Pages.Courtesy), true);
+            //    return;
+            //}
+
+            if (!Utility.CheckXSS(this.Request))
+            {
+                SessionHelper.Set(SessionKeys.Courtesy, Enums.Courtesy.Default);
+                SessionHelper.SetValue(SessionKeys.Courtesy_Error, Messages.XSS);
+                Response.Redirect(Utility.GetUrl(Keys.Pages.Courtesy), true);
+                return;
+            }
+
+            if (!Utility.CheckXSS(this))
+            {
+                SessionHelper.Set(SessionKeys.Courtesy, Enums.Courtesy.Default);
+                SessionHelper.SetValue(SessionKeys.Courtesy_Error, Messages.XSS);
+                Response.Redirect(Utility.GetUrl(Keys.Pages.Courtesy), true);
+                return;
+            }
+
+            if (IsOffline())
+            {
+                SessionHelper.Set(SessionKeys.Courtesy, Enums.Courtesy.Default);
+                SessionHelper.SetValue(SessionKeys.Courtesy_Error, Messages.Offline);
+                Response.Redirect(Utility.GetUrl(Keys.Pages.Courtesy), true);
+                return;
+            }
+
+            switch (currentPage)
+            {
+                case Keys.Pages.Default:
+                    break;
+                default:
+                    if (!CheckNessunaUtenza())
+                    {
+                        SessionHelper.Set(SessionKeys.Courtesy, Enums.Courtesy.Default);
+                        SessionHelper.SetValue(SessionKeys.Courtesy_Error, Messages.NessunaUtenza);
+                        Response.Redirect(Utility.GetUrl(Keys.Pages.Courtesy), true);
+                        return;
+                    }
+                    break;
+            }
+
+            Utility.MantainScroll(this, true);
+            base.OnLoad(e);
+        }
+
+        #region private members
+        private bool IsSessioneDuplicata()
+        {
+            string sessionGuid = SessionHelper.GetValue(SessionKeys.GUID);
+            string viewStateGuid = ViewState[SessionKeys.GUID.Value] + string.Empty;
+            if (!string.IsNullOrEmpty(viewStateGuid) &&
+                sessionGuid != viewStateGuid)
+                return true;
+            return false;
+        }
+
+        private void ResetGuid()
+        {
+            SessionHelper.SetValue(SessionKeys.GUID, Guid.NewGuid().ToString());
+            ViewState[SessionKeys.GUID.Value] = SessionHelper.GetValue(SessionKeys.GUID);
+        }
+
+        private bool IsOffline()
+        {
+            return UtilsPresenter.IsOffline();
+        }
+
+        private bool CheckNessunaUtenza()
+        {
+            Utente datiUtente = SessionHelper.GetValue<Utente>(SessionKeys.UtenteCorrente);
+            return datiUtente != null;
+        }
+
+        private void HideForm(Control Controlli)
+        {
+            if (Controlli != null && Controlli.Controls != null && Controlli.Controls.Count > 0)
+            {
+                foreach (Control ctrl in Controlli.Controls)
+                {
+                    HideForm(ctrl);
+                    switch (ctrl.GetType().Name)
+                    {
+                        case "Panel":
+                        case "TextBox":
+                        case "CheckBox":
+                        case "RadioButton":
+                        case "Button":
+                        case "DropDownList":
+                        case "LinkButton":
+                        case "ImageButton":
+                        case "HtmlGenericControl":
+                            ctrl.Visible = false;
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
         }
-       
-        protected void RegisterAvantiOnClick(string key)
-        {
-            ClientScript.RegisterClientScriptBlock(this.GetType(), key,
-                        @"$(document).ready(function(){   
-                            $('#btnAvanti').click();
-                        });
-                    ", true);
-        }
+
+        #endregion
     }
 }

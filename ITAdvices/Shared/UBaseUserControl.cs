@@ -6,7 +6,7 @@ using System.Data;
 using System.Web.UI.WebControls;
 using ITAdvices.Entity.DB;
 
-namespace Unicarpe.Shared
+namespace ITAdvices.Shared
 {
     public class UBaseUserControl : System.Web.UI.UserControl
     {

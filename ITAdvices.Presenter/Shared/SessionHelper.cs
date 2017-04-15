@@ -33,17 +33,7 @@ namespace ITAdvices.Business
     {
         private static System.Web.Caching.Cache CACHE { get { return System.Web.HttpContext.Current.Cache; } }
         private static System.Web.SessionState.HttpSessionState SESSION { get { return System.Web.HttpContext.Current.Session; } }
-
-#warning Check Session: TODO!
-        public static bool IsSessionExpired()
-        {
-            bool bSessionExpired = false;
-            object session_alive = Get(SessionKeys.SESSION_ALIVE);
-            if (session_alive == null || string.IsNullOrEmpty(session_alive.ToString()))
-                bSessionExpired = true;
-
-            return bSessionExpired;
-        }
+        
         private static object CacheGet(SessionKeys key)
         {
             return CACHE.Get(key.Value);
@@ -182,14 +172,15 @@ namespace ITAdvices.Business
     public class SessionKeys
     {
         #region Chiavi in Sessione
-
         public static readonly SessionKeys InManutenzione = new SessionKeys("InManutenzione");
         public static readonly SessionKeys UltimoAccesso = new SessionKeys("UltimoAccesso");
         public static readonly SessionKeys UtenteCorrente = new SessionKeys("UtenteCorrente");
         public static readonly SessionKeys SESSION_ALIVE = new SessionKeys("SESSION_ALIVE");
-        public static readonly SessionKeys SESSION_DUPLICATED = new SessionKeys("SESSION_DUPLICATED");
-        public static readonly SessionKeys Courtesy = new SessionKeys("Courtesy"); 
-        public static readonly SessionKeys Courtesy_Error = new SessionKeys("Courtesy_Error"); 
+        public static readonly SessionKeys SESSION_DUPLICATED = new SessionKeys("SESSION_DUPLICATED"); 
+        public static readonly SessionKeys GUID = new SessionKeys("GUID"); 
+        public static readonly SessionKeys Courtesy = new SessionKeys("Courtesy");
+        public static readonly SessionKeys Courtesy_Error = new SessionKeys("Courtesy_Error");
+        public static readonly SessionKeys NoJavascript = new SessionKeys("NoJavascript");
 
         public static readonly SessionKeys ExcelNew = new SessionKeys("ExcelNew");
         #endregion

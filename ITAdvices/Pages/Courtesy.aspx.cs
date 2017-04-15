@@ -9,7 +9,7 @@ using ITAdvices.Business;
 
 namespace ITAdvices.Pages
 {
-    public partial class Courtesy : UBasePage
+    public partial class Courtesy : Shared.UBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

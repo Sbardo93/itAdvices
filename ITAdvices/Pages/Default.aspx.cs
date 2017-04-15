@@ -6,7 +6,7 @@ using ITAdvices.UserControls;
 
 namespace ITAdvices.Pages
 {
-    public partial class Default : UBasePage
+    public partial class Default : Shared.UBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

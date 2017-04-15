@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace ITAdvices.Entity.DB
 {
@@ -94,5 +95,33 @@ namespace ITAdvices.Entity.DB
         }
         #endregion
 
+        #region Find
+        public static bool Find(Expression<Func<T, bool>> match, ref T entity)
+        {
+            try
+            {
+                using (DataService<T> db = new DataService<T>())
+                {
+                    entity = db.Find(match);
+                    return true;
+                }
+            }
+            catch (Exception ex) { Logger.LogException(ex); }
+            return false;
+        }
+        public static bool FindAll(Expression<Func<T, bool>> match, ref List<T> entity)
+        {
+            try
+            {
+                using (DataService<T> db = new DataService<T>())
+                {
+                    entity = db.FindAll(match).ToList();
+                    return true;
+                }
+            }
+            catch (Exception ex) { Logger.LogException(ex); }
+            return false;
+        }
+        #endregion
     }
 }
