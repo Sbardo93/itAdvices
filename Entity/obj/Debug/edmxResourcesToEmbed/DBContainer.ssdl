@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ITAdvices.BusinessLogic.DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MSSql143214.dbo.Log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Log">
+    <Key>
+      <PropertyRef Name="Data" />
+      <PropertyRef Name="Username" />
+      <PropertyRef Name="Category" />
+      <PropertyRef Name="Message" />
+      <PropertyRef Name="SessionId" />
+    </Key>
+    <Property Name="Data" Type="smalldatetime" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Category" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Message" Type="varchar(max)" Nullable="false" />
+    <Property Name="SessionId" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SessionState" Type="varchar(max)" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MSSql143214.dbo.Parametri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Parametri">
+    <Key>
+      <PropertyRef Name="Dominio" />
+      <PropertyRef Name="Codifica" />
+      <PropertyRef Name="Descrizione" />
+    </Key>
+    <Property Name="Dominio" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Codifica" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Descrizione" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ruolo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ruolo" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IdRuolo" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="DataRegistrazione" Type="smalldatetime" Nullable="false" />
+  </EntityType>
+  <Association Name="RuoloUtente">
+    <End Role="Ruolo" Type="Self.Ruolo" Multiplicity="1" />
+    <End Role="Utente" Type="Self.Utente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ruolo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Utente">
+        <PropertyRef Name="IdRuolo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ITAdvicesBusinessLogicDBStoreContainer">
+    <EntitySet Name="Ruolo" EntityType="Self.Ruolo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utente" EntityType="Self.Utente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Log" EntityType="Self.Log" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Log].[Data] AS [Data], 
+    [Log].[Username] AS [Username], 
+    [Log].[Category] AS [Category], 
+    [Log].[Message] AS [Message], 
+    [Log].[SessionId] AS [SessionId], 
+    [Log].[SessionState] AS [SessionState]
+    FROM [dbo].[Log] AS [Log]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Parametri" EntityType="Self.Parametri" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Parametri].[Dominio] AS [Dominio], 
+    [Parametri].[Codifica] AS [Codifica], 
+    [Parametri].[Descrizione] AS [Descrizione]
+    FROM [dbo].[Parametri] AS [Parametri]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="RuoloUtente" Association="Self.RuoloUtente">
+      <End Role="Ruolo" EntitySet="Ruolo" />
+      <End Role="Utente" EntitySet="Utente" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

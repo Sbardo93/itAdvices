@@ -32,9 +32,10 @@ C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\Microsoft.CodeDom.Providers.DotNe
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\obj\Debug\ITAdvices.csprojResolveAssemblyReference.cache
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\obj\Debug\ITAdvices.dll
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\obj\Debug\ITAdvices.pdb
-C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\BusinessLogic.dll
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\EntityFramework.dll
-C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\BusinessLogic.pdb
-C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\BusinessLogic.dll.config
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\EntityFramework.xml
 C:\Users\ItAdvices\Dev\ITAdvices\ITAdvices\bin\log4net.dll
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices\bin\ITAdvices.Business.dll
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices\bin\ITAdvices.Entity.dll
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices\bin\ITAdvices.Entity.pdb
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices\bin\ITAdvices.Business.pdb

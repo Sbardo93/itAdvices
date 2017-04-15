@@ -8,9 +8,9 @@ using System.Reflection;
 using System.Web.Script.Serialization;
 using System.Text;
 using System.Web;
-using BusinessLogic;
+using ITAdvices.Business;
 
-namespace ITAdvices
+namespace ITAdvices.UserControls
 {
     public partial class ucSmartGrid : UserControl
     {

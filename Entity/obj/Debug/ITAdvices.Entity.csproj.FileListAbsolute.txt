@@ -1,0 +1,11 @@
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\bin\Debug\ITAdvices.Entity.dll
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\bin\Debug\ITAdvices.Entity.pdb
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\bin\Debug\EntityFramework.dll
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\bin\Debug\log4net.dll
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\bin\Debug\EntityFramework.xml
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.dll
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.pdb
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.csproj.GenerateResource.Cache
+C:\Users\ItAdvices\Dev\ItAdvices\Entity\obj\Debug\ITAdvices.Entity.Common.Messages.resources

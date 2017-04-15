@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="DBContainerStoreContainer" CdmEntityContainer="DBEntities">
+  <EntityContainerMapping StorageEntityContainer="ITAdvicesBusinessLogicDBStoreContainer" CdmEntityContainer="DBEntities">
     <EntitySetMapping Name="Ruolo">
-      <EntityTypeMapping TypeName="DBContainer.Ruolo">
+      <EntityTypeMapping TypeName="ITAdvices.BusinessLogic.DB.Ruolo">
         <MappingFragment StoreEntitySet="Ruolo">
-          <ScalarProperty Name="Ruolo1" ColumnName="Ruolo" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Ruolo1" ColumnName="Ruolo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Utente">
-      <EntityTypeMapping TypeName="DBContainer.Utente">
+      <EntityTypeMapping TypeName="ITAdvices.BusinessLogic.DB.Utente">
         <MappingFragment StoreEntitySet="Utente">
-          <ScalarProperty Name="DataRegistrazione" ColumnName="DataRegistrazione" />
-          <ScalarProperty Name="Email" ColumnName="Email" />
-          <ScalarProperty Name="IdRuolo" ColumnName="IdRuolo" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="IdRuolo" ColumnName="IdRuolo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DataRegistrazione" ColumnName="DataRegistrazione" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Log">
-      <EntityTypeMapping TypeName="DBContainer.Log">
+      <EntityTypeMapping TypeName="ITAdvices.BusinessLogic.DB.Log">
         <MappingFragment StoreEntitySet="Log">
-          <ScalarProperty Name="SessionState" ColumnName="SessionState" />
-          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
-          <ScalarProperty Name="Message" ColumnName="Message" />
-          <ScalarProperty Name="Category" ColumnName="Category" />
-          <ScalarProperty Name="Username" ColumnName="Username" />
           <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="SessionId" ColumnName="SessionId" />
+          <ScalarProperty Name="SessionState" ColumnName="SessionState" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

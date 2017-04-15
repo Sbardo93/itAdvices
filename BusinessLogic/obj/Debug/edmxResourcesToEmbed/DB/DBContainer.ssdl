@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="DBContainer.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ITAdvices.BusinessLogic.DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <!--Errors Found During Generation:
 warning 6002: The table/view 'MSSql143214.dbo.Log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Log">
@@ -46,7 +46,7 @@ warning 6002: The table/view 'MSSql143214.dbo.Log' does not have a primary key d
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="DBContainerStoreContainer">
+  <EntityContainer Name="ITAdvicesBusinessLogicDBStoreContainer">
     <EntitySet Name="Ruolo" EntityType="Self.Ruolo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Utente" EntityType="Self.Utente" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Log" EntityType="Self.Log" store:Type="Tables" store:Schema="dbo">

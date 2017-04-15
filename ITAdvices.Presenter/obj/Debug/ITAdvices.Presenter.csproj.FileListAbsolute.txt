@@ -1,0 +1,5 @@
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices.Presenter\bin\Debug\ITAdvices.Presenter.dll
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices.Presenter\bin\Debug\ITAdvices.Presenter.pdb
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices.Presenter\obj\Debug\ITAdvices.Presenter.csprojResolveAssemblyReference.cache
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices.Presenter\obj\Debug\ITAdvices.Presenter.dll
+C:\Users\ItAdvices\Dev\ItAdvices\ITAdvices.Presenter\obj\Debug\ITAdvices.Presenter.pdb

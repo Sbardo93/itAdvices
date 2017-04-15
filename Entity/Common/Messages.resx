@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="All_Attenzione" xml:space="preserve">
+    <value>Attenzione</value>
+  </data>
+  <data name="All_DataErrata" xml:space="preserve">
+    <value>Data errata</value>
+  </data>
+  <data name="All_DataFormato" xml:space="preserve">
+    <value>La data non è nel formato richiesto</value>
+  </data>
+  <data name="All_DataInferiore1753" xml:space="preserve">
+    <value>La data non può essere precedente al 1753</value>
+  </data>
+  <data name="All_DataObbligatoria" xml:space="preserve">
+    <value>Data obbligatoria</value>
+  </data>
+  <data name="All_Dettaglio" xml:space="preserve">
+    <value>Dettaglio</value>
+  </data>
+  <data name="All_Elimina" xml:space="preserve">
+    <value>Elimina</value>
+  </data>
+  <data name="All_EmailErrata" xml:space="preserve">
+    <value>Inserire un indirizzo email valido</value>
+  </data>
+  <data name="All_ErroreDataMaggioreNow" xml:space="preserve">
+    <value>La data non può essere successiva alla data odierna</value>
+  </data>
+  <data name="All_ErroreDataMinoreNow" xml:space="preserve">
+    <value>La data non può essere precedente alla data odierna</value>
+  </data>
+  <data name="All_GenericError" xml:space="preserve">
+    <value>Si è verificato un errore, riprovare più tardi.&lt;/br&gt;&lt;/br&gt;Se il problema persiste inviare un'e-mail alla casella &lt;a href="PensioniOffLine@inps.it"&gt;&lt;font size="4"&gt;Portale_APE@inps.it&lt;/font&gt;&lt;/a&gt; descrivendo dettagliatamente il punto esatto in cui si è verificato l'errore ed indicando la tua UserName.</value>
+  </data>
+  <data name="All_ImportoFormatoPunto" xml:space="preserve">
+    <value>Formato non valido: ammesse solo cifre numeriche e la virgola come separatore decimale</value>
+  </data>
+  <data name="All_TelefonoErrato" xml:space="preserve">
+    <value>Inserire il numero di telefono in formato numerico</value>
+  </data>
+  <data name="Anagrafica_AnagraficaNonTrovata" xml:space="preserve">
+    <value>Anagrafica automatica non disponibile, procedere con l'inserimento manuale.</value>
+  </data>
+  <data name="Anagrafica_CodFiscaleRicercaMancante" xml:space="preserve">
+    <value>Effettuare la ricerca del codice fiscale</value>
+  </data>
+  <data name="Anagrafica_CognomeIncoerenteCF" xml:space="preserve">
+    <value>Il cognome immesso non è coerente con il codice fiscale</value>
+  </data>
+  <data name="Anagrafica_ComuneRilascioDocumentoObbligatorio" xml:space="preserve">
+    <value>Comune rilascio documento obbligatorio</value>
+  </data>
+  <data name="Anagrafica_DataNascitaIncoerenteConCodiceFiscale" xml:space="preserve">
+    <value>La data di nascita specificata non è coerente con il codice fiscale</value>
+  </data>
+  <data name="Anagrafica_DataRilascioDocumentoErrata" xml:space="preserve">
+    <value>La data di rilascio del documento di riconoscimento non può essere antecedente alla data di nascita del titolare</value>
+  </data>
+  <data name="Anagrafica_DataRilascioDocumentoMinorediDataOdierna" xml:space="preserve">
+    <value>La data di rilascio del documento di riconoscimento dev'essere precedente alla data odierna</value>
+  </data>
+  <data name="Anagrafica_DataRilascioDocumentoObbligatoria" xml:space="preserve">
+    <value>Data di rilascio del documento obbligatoria</value>
+  </data>
+  <data name="Anagrafica_EnteRilascioDocumentoObbligatorio" xml:space="preserve">
+    <value>Ente rilascio documento obbligatorio</value>
+  </data>
+  <data name="Anagrafica_EnteRilascioErratoPerCittadinanza" xml:space="preserve">
+    <value>L'ente di rilascio del documento di riconoscimento non è compatibile con la cittadinanza del titolare</value>
+  </data>
+  <data name="Anagrafica_EnteRilascioErratoPerResidenza" xml:space="preserve">
+    <value>L'ente di rilascio del documento di riconoscimento non è compatibile con lo stato di residenza del titolare</value>
+  </data>
+  <data name="Anagrafica_LuogoRilascioDocumentoErrato" xml:space="preserve">
+    <value>Il luogo di rilascio del documento di riconoscimento non è coerente con il tipo di documento selezionato</value>
+  </data>
+  <data name="Anagrafica_NazioneRilascioDocumentoObbligatoria" xml:space="preserve">
+    <value>Nazione rilascio documento obbligatoria</value>
+  </data>
+  <data name="Anagrafica_NomeIncoerenteCF" xml:space="preserve">
+    <value>Il nome immesso non è coerente con il codice fiscale</value>
+  </data>
+  <data name="Anagrafica_NumeroDocumentoErrato" xml:space="preserve">
+    <value>Il numero del documento di riconoscimento deve contenere solo caratteri alfanumerici; non sono ammessi caratteri speciali</value>
+  </data>
+  <data name="Anagrafica_NumeroDocumentoObbligatorio" xml:space="preserve">
+    <value>Numero documento obbligatorio</value>
+  </data>
+  <data name="Anagrafica_ProvinciaRilascioDocumentoObbligatoria" xml:space="preserve">
+    <value>Provincia rilascio documento obbligatoria</value>
+  </data>
+  <data name="Anagrafica_RecapitoObbligatorio" xml:space="preserve">
+    <value>E' obbligatorio inserire almeno un recapito tra telefono, cellulare, indirizzo email o indirizzo PEC</value>
+  </data>
+  <data name="Anagrafica_RecapitoObbligatorioCitt" xml:space="preserve">
+    <value>E' obbligatorio inserire almeno un recapito tra indirizzo email e indirizzo PEC</value>
+  </data>
+  <data name="Anagrafica_TipoDocumentoObbligatorio" xml:space="preserve">
+    <value>Tipo documento obbligatorio</value>
+  </data>
+  <data name="Certfica_InformativaContenuto" xml:space="preserve">
+    <value>&lt;b&gt;Art. 13 del d.lgs. 30 giugno 2003, n. 196, recante "Codice in materia di protezione dei dati personali"&lt;/b&gt;&lt;BR/&gt;
+Ai sensi della normativa sulla protezione dei dati personali la informiamo che i dati da lei conferiti volontariamente saranno trattati esclusivamente nell’ambito di tutte le attività strettamente funzionali alla concessione dell’anticipo pensionistico (cosiddetto APE) previsto e disciplinato dalla legge n. 232 del 2016 e dal DPCM .&lt;BR/&gt;&lt;BR/&gt;
+Titolari del trattamento sono il Ministero del lavoro e delle politiche sociali, il Ministero dell’economia e delle finanze, l’INPS, gli Istituti finanziatori e le Imprese assicuratrici ciascuno per il proprio ambito di competenza. I dati saranno comunicati da INPS all’intermediario finanziario (o banca) ed all’impresa assicuratrice da lei prescelta che aderiscono agli Accordi quadro stipulati con il Ministero del lavoro e delle politiche sociali e con il Ministero dell’economia e delle finanze.&lt;BR/&gt;&lt;BR/&gt;I dati saranno trattati principalmente mediante l’ausilio degli strumenti elettronici, da soggetti appositamente incaricati nell’ambito di precise istruzioni e nel rispetto delle misure di sicurezza previste dal Codice della protezione dei dati. Ai sensi dell’art. 7 del Codice, la informiamo che ha il diritto di chiedere l’accesso ai suoi dati personali, il loro aggiornamento, rettifica ed integrazione oltre al diritto di opposizione al loro trattamento per motivi legittimi.&lt;BR/&gt;&lt;BR/&gt;I dati potranno essere comunicati ad altri soggetti pubblici o privati quando ciò sia previsto dalla legge o dai regolamenti e nei limiti dagli stessi fissati. Ha inoltre il diritto di conoscere a quali soggetti i dati sono stati comunicati. A tal fine potrà rivolgere istanza – secondo le modalità previste dagli artt. 8 e 9 del Codice - nei confronti di INPS - con sede in Roma, via Ciro il Grande 21. Resta inteso che, con specifico riferimento al contratto di APE che lei provvederà eventualmente a sottoscrivere unitamente al contratto di polizza assicurativa, le sarà fornita un’ulteriore specifica informativa da parte dei relativi Titolari. I dati saranno conservati per il tempo strettamente necessario alle previsioni di legge</value>
+  </data>
+  <data name="Certifica_Informativa" xml:space="preserve">
+    <value>Informativa sul trattamento dei dati personali</value>
+  </data>
+  <data name="Certifica_RichiestaCertificazioneAPE" xml:space="preserve">
+    <value>la certificazione del diritto all’anticipo finanziario a garanzia pensionistica di cui all’articolo 1, comma 168, della legge 11 dicembre 2016, n. 232 e articolo 4 del D.P.C.M.  ..... .&lt;BR/&gt;
+La certificazione del diritto è effettuata sulla base degli elementi e delle informazioni presenti negli archivi dell'INPS, al momento della certificazione.&lt;BR/&gt;
+A tal fine, dichiaro di aver preso visione dell'estratto conto contributivo e di non aver riscontrato anomalie</value>
+  </data>
+  <data name="CommunicationError" xml:space="preserve">
+    <value>Errore di comunicazione con il servizio {0}: {1}</value>
+  </data>
+  <data name="Courtesy_SessioneDuplicata" xml:space="preserve">
+    <value>Sessione duplicata!!!</value>
+  </data>
+  <data name="Courtesy_SessioneScaduta" xml:space="preserve">
+    <value>Sessione scaduta!!!&lt;/br&gt;Rientrare utilizzando la voce 'Menu Iniziale'</value>
+  </data>
+  <data name="DatiNonValidi" xml:space="preserve">
+    <value>Dati non validi</value>
+  </data>
+  <data name="EliminazioneOK" xml:space="preserve">
+    <value>Eliminazione eseguita correttamente</value>
+  </data>
+  <data name="EmptyData" xml:space="preserve">
+    <value>Nessun dato disponibile.</value>
+  </data>
+  <data name="GenericError" xml:space="preserve">
+    <value>{0} ha restituito il seguente errore: {1}</value>
+  </data>
+  <data name="GenericException" xml:space="preserve">
+    <value>{0}, errore nel metodo {1}: {2}</value>
+  </data>
+  <data name="InfrastructureError" xml:space="preserve">
+    <value>Errore infrastrutturale con il servizio {0}</value>
+  </data>
+  <data name="Invio_ErroreSede" xml:space="preserve">
+    <value>Errore tecnico nel recupero delle sedi</value>
+  </data>
+  <data name="Invio_ErroreTecnico" xml:space="preserve">
+    <value>Si è verificato un errore tecnico nell'invio della domanda. Si prega di riprovare più tardi</value>
+  </data>
+  <data name="Invio_Esito" xml:space="preserve">
+    <value>La Domanda di Certificazione APE n° {0} è stata inviata con successo.</value>
+  </data>
+  <data name="Invio_SelezionaSedeObbligatorio" xml:space="preserve">
+    <value>E' obbligatorio selezionare la sede di destinazione della domanda</value>
+  </data>
+  <data name="Invio_TitoloSede" xml:space="preserve">
+    <value>Scelta della sede INPS</value>
+  </data>
+  <data name="InvokingError" xml:space="preserve">
+    <value>Errore nel consumo del servizio {0}: {1}</value>
+  </data>
+  <data name="ListaCertificazioniVuota" xml:space="preserve">
+    <value>Non sono presenti certificazioni</value>
+  </data>
+  <data name="NessunaUtenza" xml:space="preserve">
+    <value>Utenza non riconosciuta dal sistema</value>
+  </data>
+  <data name="NewLogin" xml:space="preserve">
+    <value>Attenzione, è stato eseguito un nuovo login</value>
+  </data>
+  <data name="NoEndpoint" xml:space="preserve">
+    <value>Puntamento errato al servizio {0}</value>
+  </data>
+  <data name="NoResponse" xml:space="preserve">
+    <value>risposta nulla o vuota</value>
+  </data>
+  <data name="Offline" xml:space="preserve">
+    <value>La procedura è momentaneamente in manutenzione.&lt;/br&gt;Si prega di riprovare più tardi</value>
+  </data>
+  <data name="Prodotto_EnteObbligatorio" xml:space="preserve">
+    <value>Ente obbligatorio</value>
+  </data>
+  <data name="Prodotto_FondoObbligatorio" xml:space="preserve">
+    <value>Fondo obbligatorio</value>
+  </data>
+  <data name="Prodotto_GestioneObbligatoria" xml:space="preserve">
+    <value>Gestione obbligatoria</value>
+  </data>
+  <data name="Prodotto_SedeObbligatoria" xml:space="preserve">
+    <value>Sede di destinazione obbligatoria</value>
+  </data>
+  <data name="Prodotto_TipologiaObbligatoria" xml:space="preserve">
+    <value>Tipologia obbligatoria</value>
+  </data>
+  <data name="Ricerca_CodFiscaleObbligatorio" xml:space="preserve">
+    <value>Codice fiscale obbligatorio</value>
+  </data>
+  <data name="SalvataggioOK" xml:space="preserve">
+    <value>Salvataggio eseguito correttamente</value>
+  </data>
+  <data name="SecurityError" xml:space="preserve">
+    <value>Si è verificato un errore di sicurezza nel consumo del servizio {0}</value>
+  </data>
+  <data name="UtenteNonAbilitato" xml:space="preserve">
+    <value>Utente non abilitato</value>
+  </data>
+  <data name="WebDom_NoDomus" xml:space="preserve">
+    <value>Nessun numero domanda generato</value>
+  </data>
+  <data name="XSS" xml:space="preserve">
+    <value>Individuata vulnerabilità di tipo Cross-site scripting (XSS)</value>
+  </data>
+</root>

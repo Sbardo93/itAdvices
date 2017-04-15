@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ITAdvices {
+namespace ITAdvices.UserControls {
     
     
     public partial class ucSmartGrid {
