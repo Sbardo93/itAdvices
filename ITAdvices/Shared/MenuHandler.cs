@@ -30,20 +30,21 @@ namespace ITAdvices.Shared
         //            </div>
         //        </li>
 
-        private const string link = "<a class=\"nav-link{3}\" href=\"{0}\">{1}{2}</a>";
+        private const string link = "<a class=\"nav-link{3}\" href=\"{0}\"{4}>{1}{2}</a>";
         private const string srOnly = "<span class=\"sr-only\">(current)</span>";
         private static string RenderLink(string href, string nomePagina, bool enabled, bool active)
         {
             if (!enabled)
-                href = "#";
-            return string.Format(link, href, nomePagina, active ? srOnly : "", !enabled ? " disabled" : "");
+                return string.Format(link, "#", nomePagina, "", " disabled", " onclick=\"return false;\"");
+            else
+                return string.Format(link, href, nomePagina, active ? srOnly : "", "", "");
         }
 
         public string RenderMenu()
         {
             List<Menu> ListaMenu = new List<Menu>();
             ListaMenu.Add(new Menu(Keys.Pages.DefaultPage, true, true));
-            ListaMenu.Add(new Menu(Keys.Pages.CourtesyPage, true, true));
+            ListaMenu.Add(new Menu(Keys.Pages.CourtesyPage, false, false));
 
             StringBuilder menuResult = new StringBuilder();
             ListaMenu.ForEach(
