@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master"
     CodeBehind="Courtesy.aspx.cs" Inherits="ITAdvices.Pages.Courtesy" %>
 
-<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
+<asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="head">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <div style="margin: 0 auto; margin-top: 5px;" id="divWait" runat="server">

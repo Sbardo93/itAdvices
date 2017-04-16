@@ -59,78 +59,6 @@ namespace ITAdvices.Shared
             }
         }
 
-        private List<string> _menu;
-        public List<string> menu
-        {
-            get
-            {
-                return _menu;
-            }
-            set
-            {
-                _menu = value;
-            }
-        }
-
-        private List<string> _news;
-        public List<string> news
-        {
-            get { return _news; }
-            set { _news = value; }
-        }
-
-        private List<string> _errors;
-        public List<string> errors
-        {
-            get
-            {
-                if (_errors == null)
-                {
-                    _errors = new List<string>();
-                }
-
-                return _errors;
-            }
-            set
-            {
-                _errors = value;
-            }
-        }
-
-        private List<string> _messages;
-        public List<string> messages
-        {
-            get
-            {
-                if (_messages == null)
-                {
-                    _messages = new List<string>();
-                }
-
-                return _messages;
-            }
-            set
-            {
-                _messages = value;
-            }
-        }
-        private bool _isValid;
-        public bool isValid
-        {
-            get
-            {
-                if (_errors != null)
-                {
-                    if (_errors.Count() > 0) return false;
-                }
-                return _isValid;
-            }
-            set
-            {
-                _isValid = value;
-            }
-        }
-
         public IPrincipal Utente
         {
             get
@@ -207,6 +135,7 @@ namespace ITAdvices.Shared
             switch (currentPage)
             {
                 case Keys.Pages.Default:
+                case Keys.Pages.Courtesy:
                     break;
                 default:
                     if (!CheckNessunaUtenza())
@@ -220,6 +149,7 @@ namespace ITAdvices.Shared
             }
 
             Utility.MantainScroll(this, true);
+
             base.OnLoad(e);
         }
 
