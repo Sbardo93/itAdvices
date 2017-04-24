@@ -12,13 +12,13 @@ namespace ITAdvices.Business
         {
             return DataManager<Utente>.GetByGuid(guidUtente);
         }
-        public static bool TryLogin(string username, string passWord)
+        public static Utente TryLogin(string username, string passWord)
         {
             try
             {
                 if (string.IsNullOrWhiteSpace(username))
                 {
-                    throw new CustomException(Messages.Login_EmailNonInserita);
+                    throw new CustomException(Messages.Login_UsernameNonInserita);
                 }
                 if (string.IsNullOrWhiteSpace(passWord))
                 {
@@ -27,7 +27,7 @@ namespace ITAdvices.Business
                 Utente u = null;
                 if (DataManager<Utente>.Find(x => x.Username == username, ref u) && u.Username == passWord)
                 {
-                    return true;
+                    return u;
                 }
                 throw new CustomException(Messages.Login_UsernamePasswordErrate);
             }

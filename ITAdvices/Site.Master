@@ -7,6 +7,7 @@
     <title>ITAdvices</title>
     <!-- Bootstrap core CSS -->
     <link href="/Asset/bootstrap-4.0.0-alpha.6-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/Asset/bootstrap-4.0.0-alpha.6-dist/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link rel="Stylesheet" href="/Asset/Style/bootstrap-toggle.css" type="text/css" />
@@ -41,6 +42,7 @@
     <%--<script type="text/javascript" src="/Asset/Script/Browser.js"></script>--%>
     <script type="text/javascript" src="/Asset/Script/jquery.blockUI.js"></script>
     <script type="text/javascript" src="/Asset/Script/Utility.js"></script>
+    <script type="text/javascript" src="/Asset/Script/bootstrap-notify.js"></script>
     <script type="text/javascript" src="/Asset/Script/customJS.js"></script>
 </body>
 

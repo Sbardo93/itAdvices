@@ -8,8 +8,8 @@
         <div class="col-lg-6">
             <div class="form-signin">
                 <h2 class="form-signin-heading">Effettua l'accesso</h2>
-                <label for="inputEmail" class="sr-only">Email</label>
-                <input type="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
+                <label for="inputUsername" class="sr-only">Username</label>
+                <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
 
@@ -26,9 +26,12 @@
     </div>
     <script type='text/javascript'>
         function doLogin() {
-            var email = $('#inputEmail').val();
+            var username = $('#inputUsername').val();
             var password = $('#inputPassword').val();
-            doAjax('Login.aspx/TryLogin', "{email:" + JSON.stringify(email) + ", password:" + JSON.stringify(password) + "}");
+            if (doAjax('Login.aspx/TryLogin', "{username:" + JSON.stringify(username) + ", password:" + JSON.stringify(password) + "}"))
+            {
+                return true;
+            }
             return false;
         }
     </script>

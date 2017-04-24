@@ -533,15 +533,6 @@ namespace ITAdvices.Entity.Common {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Email non inserita.
-        /// </summary>
-        public static string Login_EmailNonInserita {
-            get {
-                return ResourceManager.GetString("Login_EmailNonInserita", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Errore in fase di Login.
         /// </summary>
         public static string Login_Errore {
@@ -556,6 +547,15 @@ namespace ITAdvices.Entity.Common {
         public static string Login_PasswordNonInserita {
             get {
                 return ResourceManager.GetString("Login_PasswordNonInserita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username non inserita.
+        /// </summary>
+        public static string Login_UsernameNonInserita {
+            get {
+                return ResourceManager.GetString("Login_UsernameNonInserita", resourceCulture);
             }
         }
         

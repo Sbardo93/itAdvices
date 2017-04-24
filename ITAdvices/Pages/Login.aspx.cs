@@ -11,18 +11,19 @@ namespace ITAdvices.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
 
         [System.Web.Services.WebMethod(true)]
         [System.Web.Script.Services.ScriptMethod()]
-        public static void TryLogin(string email, string password)
+        public static string TryLogin(string username, string password)
         {
-            if(UtentiPresenter.TryLogin(email, password))
+            Utente utente = UtentiPresenter.TryLogin(username, password);
+            if (utente != null)
             {
-
+                SessionHelper.Set(SessionKeys.UtenteCorrente, utente);
             }
+            return "Login effettuato";
         }
     }
 }

@@ -138,11 +138,14 @@ namespace ITAdvices.Shared
             switch (currentPage)
             {
                 case Keys.Pages.Default:
-                case Keys.Pages.Login:
                 case Keys.Pages.Courtesy:
                     break;
+                case Keys.Pages.Login:
+                    if (CheckUtenteLoggato())
+                        Response.Redirect(Utility.GetUrl(Keys.Pages.Default), true);
+                    break;
                 default:
-                    if (!CheckNessunaUtenza())
+                    if (!CheckUtenteLoggato())
                     {
                         SessionHelper.Set(SessionKeys.Courtesy, Enums.Courtesy.Default);
                         SessionHelper.SetValue(SessionKeys.Courtesy_Error, Messages.NessunaUtenza);
@@ -179,7 +182,7 @@ namespace ITAdvices.Shared
             return UtilsPresenter.IsOffline();
         }
 
-        private bool CheckNessunaUtenza()
+        private bool CheckUtenteLoggato()
         {
             Utente datiUtente = SessionHelper.GetValue<Utente>(SessionKeys.UtenteCorrente);
             return datiUtente != null;
@@ -211,7 +214,7 @@ namespace ITAdvices.Shared
                 }
             }
         }
-        
+
         #endregion
     }
 }

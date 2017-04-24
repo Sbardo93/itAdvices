@@ -74,6 +74,7 @@
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\css\bootstrap.min.css" />
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\js\bootstrap.js" />
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\js\bootstrap.min.js" />
+    <Content Include="Asset\Script\bootstrap-notify.js" />
     <Content Include="Asset\Script\customJS.js" />
     <Content Include="Asset\Script\ie10-viewport-bug-workaround.js" />
     <Content Include="Asset\Script\jquery-3.2.1.min.js" />

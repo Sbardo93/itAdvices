@@ -3,6 +3,7 @@ using ITAdvices.Business;
 using System.Collections.Generic;
 using System.Linq;
 using ITAdvices.UserControls;
+using ITAdvices.Entity.DB;
 
 namespace ITAdvices.Pages
 {
@@ -10,7 +11,9 @@ namespace ITAdvices.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //lblprova.Text = new UtentiPresenter().GetUtente(Guid.Empty).ToString();
+            Utente u = SessionHelper.GetValue<Utente>(SessionKeys.UtenteCorrente);
+            if (u != null)
+                lblprova.Text = u.Username;
             //this.ucSmartGrid.LoadSmartGrid(new UtilsPresenter().GetAllLog().Select(x => new SmartGridEntity.Log(x)).ToList(), true, false,
             //    new List<ucSmartGrid.ButtonTypeEnum>()
             //    { ucSmartGrid.ButtonTypeEnum.Excel, ucSmartGrid.ButtonTypeEnum.Pdf, ucSmartGrid.ButtonTypeEnum.Print },
