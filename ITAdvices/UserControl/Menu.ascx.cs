@@ -6,16 +6,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ITAdvices
+namespace ITAdvices.UserControl
 {
-    public partial class SiteMaster : System.Web.UI.MasterPage
+    public partial class Menu : UBaseUserControl
     {
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-        }
         protected void Page_Load(object sender, EventArgs e)
         {
+            MenuHandler menu = new MenuHandler(null);
+            ulMenu.InnerHtml = menu.RenderMenu();
 
         }
     }

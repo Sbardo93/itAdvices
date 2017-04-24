@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\CustomException.cs" />
     <Compile Include="Common\Enums.cs" />
     <Compile Include="Common\Keys.cs" />
     <Compile Include="DB\DataManager.cs" />

@@ -1,5 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ITAdvices.SiteMaster" %>
 
+<%@ Register TagPrefix="uc" TagName="Menu" Src="~/UserControl/Menu.ascx" %>
 <!DOCTYPE html>
 <html>
 <head runat="server">
@@ -11,38 +12,16 @@
     <link rel="Stylesheet" href="/Asset/Style/bootstrap-toggle.css" type="text/css" />
     <link rel="Stylesheet" href="/Asset/Style/style.css" type="text/css">
 
+    <script src="/Asset/Script/jquery-3.2.1.min.js"></script>
+
     <script type="text/javascript">
         window.history.forward(1);
     </script>
-    <style>
-        body {
-            padding-top: 5rem;
-        }
-
-        .starter-template {
-            padding: 3rem 1.5rem;
-            text-align: center;
-        }
-    </style>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">ItAdvices</a>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mr-auto" id="ulMenu" runat="server">
-                
-            </ul>
-            <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
+    <uc:Menu ID="menu" runat="server" />
     <div class="container">
         <form id="form1" runat="server">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -52,9 +31,6 @@
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/Asset/Script/jquery-3.1.1.slim.min.js"></script>
-    <script>window.jQuery || document.write('<script src="/Assets/Script/jquery-3.2.1.min.js"><\/script>')</script>
     <script src="/Asset/Script/tether.min.js"></script>
     <script src="/Asset/bootstrap-4.0.0-alpha.6-dist/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -62,9 +38,10 @@
 
     <!-- Custom Javascript -->
     <script type="text/javascript" src="/Asset/Script/bootstrap-toggle.js"></script>
-    <script type="text/javascript" src="/Asset/Script/Browser.js"></script>
+    <%--<script type="text/javascript" src="/Asset/Script/Browser.js"></script>--%>
     <script type="text/javascript" src="/Asset/Script/jquery.blockUI.js"></script>
     <script type="text/javascript" src="/Asset/Script/Utility.js"></script>
+    <script type="text/javascript" src="/Asset/Script/customJS.js"></script>
 </body>
 
 

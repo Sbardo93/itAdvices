@@ -32,7 +32,7 @@ namespace ITAdvices.Shared
 
         private const string link = "<a class=\"nav-link{3}\" href=\"{0}\"{4}>{1}{2}</a>";
         private const string srOnly = "<span class=\"sr-only\">(current)</span>";
-        private static string RenderLink(string href, string nomePagina, bool enabled, bool active)
+        private static string RenderLink(string href, string nomePagina, bool active, bool enabled)
         {
             if (!enabled)
                 return string.Format(link, "#", nomePagina, "", " disabled", " onclick=\"return false;\"");
@@ -43,9 +43,23 @@ namespace ITAdvices.Shared
         public string RenderMenu()
         {
             List<Menu> ListaMenu = new List<Menu>();
-            ListaMenu.Add(new Menu(Keys.Pages.DefaultPage, true, true));
-            ListaMenu.Add(new Menu(Keys.Pages.CourtesyPage, false, false));
 
+            switch (Utility.GetCurrentPageName(HttpContext.Current.Request))
+            {
+                case Keys.Pages.Default:
+                    ListaMenu.Add(new Menu(Keys.Pages.DefaultPage, true, true));
+                    ListaMenu.Add(new Menu(Keys.Pages.LoginPage, true, false));
+                    break;
+                case Keys.Pages.Login:
+                    ListaMenu.Add(new Menu(Keys.Pages.DefaultPage, true, false));
+                    ListaMenu.Add(new Menu(Keys.Pages.LoginPage, true, true));
+                    break;
+                case Keys.Pages.Courtesy:
+                    break;
+                default:
+                    break;
+            }
+            
             StringBuilder menuResult = new StringBuilder();
             ListaMenu.ForEach(
                 x =>

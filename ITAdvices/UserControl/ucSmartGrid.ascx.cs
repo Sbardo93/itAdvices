@@ -9,10 +9,11 @@ using System.Web.Script.Serialization;
 using System.Text;
 using System.Web;
 using ITAdvices.Business;
+using ITAdvices.Shared;
 
 namespace ITAdvices.UserControls
 {
-    public partial class ucSmartGrid : UserControl
+    public partial class ucSmartGrid : UBaseUserControl
     {
         #region Properties
         private List<SmartGridColumnInfo> _ListSmartGridColumnInfo;

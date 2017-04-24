@@ -277,6 +277,18 @@ A tal fine, dichiaro di aver preso visione dell'estratto conto contributivo e di
   <data name="ListaCertificazioniVuota" xml:space="preserve">
     <value>Non sono presenti certificazioni</value>
   </data>
+  <data name="Login_EmailNonInserita" xml:space="preserve">
+    <value>Email non inserita</value>
+  </data>
+  <data name="Login_Errore" xml:space="preserve">
+    <value>Errore in fase di Login</value>
+  </data>
+  <data name="Login_PasswordNonInserita" xml:space="preserve">
+    <value>Password non inserita</value>
+  </data>
+  <data name="Login_UsernamePasswordErrate" xml:space="preserve">
+    <value>Username e/o password errate</value>
+  </data>
   <data name="NessunaUtenza" xml:space="preserve">
     <value>Utenza non riconosciuta dal sistema</value>
   </data>

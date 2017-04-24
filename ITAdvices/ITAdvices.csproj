@@ -74,9 +74,10 @@
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\css\bootstrap.min.css" />
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\js\bootstrap.js" />
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\js\bootstrap.min.js" />
+    <Content Include="Asset\Script\customJS.js" />
     <Content Include="Asset\Script\ie10-viewport-bug-workaround.js" />
-    <Content Include="Asset\Script\jquery-3.1.1.slim.min.js" />
     <Content Include="Asset\Script\jquery-3.2.1.min.js" />
+    <Content Include="Asset\Script\jquery.blockUI.js" />
     <Content Include="Asset\Script\tether.min.js" />
     <Content Include="Asset\Style\style.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -84,6 +85,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Pages\Courtesy.aspx" />
+    <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Default.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="packages.config" />
@@ -107,7 +109,6 @@
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\css\bootstrap.min.css.map" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Asset\Script\Browser.js" />
-    <Content Include="Asset\Script\jquery.blockUI.js" />
     <Content Include="Asset\Script\Utility.js" />
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -127,6 +128,7 @@
     <Content Include="Asset\Style\bootstrap-toggle.css" />
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\font-awesome\css\font-awesome.css" />
     <Content Include="Asset\bootstrap-4.0.0-alpha.6-dist\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="UserControl\Menu.ascx" />
     <Content Include="UserControl\ucSmartGrid.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -139,6 +141,13 @@
     </Compile>
     <Compile Include="Pages\Courtesy.aspx.designer.cs">
       <DependentUpon>Courtesy.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -163,6 +172,13 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Menu.ascx.cs">
+      <DependentUpon>Menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\Menu.ascx.designer.cs">
+      <DependentUpon>Menu.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\SmartGridEntity.cs" />
     <Compile Include="UserControl\ucSmartGrid.ascx.cs">
       <DependentUpon>ucSmartGrid.ascx</DependentUpon>
@@ -171,6 +187,7 @@
     <Compile Include="UserControl\ucSmartGrid.ascx.designer.cs">
       <DependentUpon>ucSmartGrid.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\uiElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Entity\ITAdvices.Entity.csproj">

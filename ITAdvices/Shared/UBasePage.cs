@@ -83,8 +83,11 @@ namespace ITAdvices.Shared
             switch (currentPage)
             {
                 case Keys.Pages.Default:
+                case Keys.Pages.Login:
                     SessionHelper.SetValue(SessionKeys.SESSION_ALIVE, Keys.SI);
                     break;
+                case Keys.Pages.Courtesy:
+                    return;
                 default:
                     if (Utility.IsSessionExpired())
                     {
@@ -135,6 +138,7 @@ namespace ITAdvices.Shared
             switch (currentPage)
             {
                 case Keys.Pages.Default:
+                case Keys.Pages.Login:
                 case Keys.Pages.Courtesy:
                     break;
                 default:
@@ -207,7 +211,7 @@ namespace ITAdvices.Shared
                 }
             }
         }
-
+        
         #endregion
     }
 }

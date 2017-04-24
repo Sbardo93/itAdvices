@@ -27,7 +27,7 @@ namespace ITAdvices.Entity.DB
             //
             Trace.WriteLine("Logger contructor");
 
-            connstring = ConfigurationManager.ConnectionStrings["DBLog"].ConnectionString;
+            connstring = ConfigurationManager.ConnectionStrings["SqlConn"].ConnectionString;
             if (connstring.Length == 0)
             {
                 Trace.WriteLine("Errore impostazione connection string DB LOG", LoggerName);

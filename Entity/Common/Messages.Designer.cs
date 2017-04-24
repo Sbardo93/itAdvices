@@ -533,6 +533,42 @@ namespace ITAdvices.Entity.Common {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Email non inserita.
+        /// </summary>
+        public static string Login_EmailNonInserita {
+            get {
+                return ResourceManager.GetString("Login_EmailNonInserita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Errore in fase di Login.
+        /// </summary>
+        public static string Login_Errore {
+            get {
+                return ResourceManager.GetString("Login_Errore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password non inserita.
+        /// </summary>
+        public static string Login_PasswordNonInserita {
+            get {
+                return ResourceManager.GetString("Login_PasswordNonInserita", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Username e/o password errate.
+        /// </summary>
+        public static string Login_UsernamePasswordErrate {
+            get {
+                return ResourceManager.GetString("Login_UsernamePasswordErrate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Utenza non riconosciuta dal sistema.
         /// </summary>
         public static string NessunaUtenza {

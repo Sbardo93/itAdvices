@@ -103,7 +103,7 @@ namespace ITAdvices.Entity.DB
                 using (DataService<T> db = new DataService<T>())
                 {
                     entity = db.Find(match);
-                    return true;
+                    return entity != null;
                 }
             }
             catch (Exception ex) { Logger.LogException(ex); }
