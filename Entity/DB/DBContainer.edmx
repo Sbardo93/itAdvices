@@ -6,7 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="ITAdvices.BusinessLogic.DB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Errors Found During Generation:
-warning 6002: The table/view 'MSSql143214.dbo.Log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'WIP.dbo.Log' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Log">
           <Key>
             <PropertyRef Name="Data" />
@@ -23,7 +23,7 @@ warning 6002: The table/view 'MSSql143214.dbo.Log' does not have a primary key d
           <Property Name="SessionState" Type="varchar(max)" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'MSSql143214.dbo.Parametri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+warning 6002: The table/view 'WIP.dbo.Parametri' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Parametri">
           <Key>
             <PropertyRef Name="Dominio" />
